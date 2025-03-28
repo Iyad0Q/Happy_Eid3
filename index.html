@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة عيد الفطر</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
+  </head>
+  <body>
+    <div class="control-buttons">
+      <span id="startButton">ابدأ اللعبة</span>
+      <img src="Lantern.png" alt="background image" id="backgroundImage">
+    </div>
+    <div class="info-container">
+      <h1>لعبة عيد الفطر</h1>
+      <div class="tries">
+        عدد المحاولات الخاطئة: <span>0</span>
+      </div>
+    </div>
+    <div class="memory-game-blocks">
+      <div class="game-block" data-text="1">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>كل عام وأنت بخير</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="1">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>وأنت بخير</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="2">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>من الغانمين</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="2">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>من السالمين</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="3">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>من العايدين</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="3">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>من الفايزين</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="4">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>أشرف الأعياد</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="4">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>ما ليها رد</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="5">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>متنان</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="5">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>😐</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="6">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>عساكم من عواده</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="6">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>الله يعيده علينا وعليكم</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="7">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>عيدكم مبارك</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="7">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>الله يبارك فيك</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="8">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>كبران</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="8">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>🙂</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="9">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>طولان</p>
+        </div>
+      </div>
+      <div class="game-block" data-text="9">
+        <div class="face front"></div>
+        <div class="face back">
+          <p>🙃</p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span id="endButton">انتهيت</span>
+      <div class="ediah">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+        <p>
+          twajsd%3245
+          <br>
+          صور الكود وارسله إلى اياد عشان تحصل عيدية
+        </p>
+      </div>
+    </footer>
+    <script>
+      let startButton = document.querySelector('#startButton');
+      let endButton = document.querySelector('#endButton');
+      let controlButtons = document.querySelector('.control-buttons');
+      let title = document.querySelector('h1');
+      let close = document.querySelector('.material-symbols-outlined');
+      let ediah = document.querySelector('.ediah');
+
+      close.addEventListener('click', function() {
+        ediah.style.display = 'none';
+      })
+
+      endButton.addEventListener('click', function() {
+        ediah.style.display = 'block';
+      })
+
+      startButton.addEventListener('click', function() {
+        controlButtons.remove();
+        title.style.position = 'absolute';
+        // Show all blocks initially
+        blocks.forEach(block => block.classList.add('is-flipped'));
+        
+        // Disable clicking during preview
+        blocksContainer.classList.add('no-clicking');
+        
+        // Hide blocks after 1.5 seconds
+        setTimeout(() => {
+          blocks.forEach(block => block.classList.remove('is-flipped'));
+          blocksContainer.classList.remove('no-clicking');
+
+        }, 1500);
+
+        endButton.style.display = 'block';
+        
+      });
+
+
+      let duration = 1000;
+      let blocksContainer = document.querySelector(".memory-game-blocks");
+      let blocks = Array.from(blocksContainer.children);
+      let orderRange = Array.from(Array(blocks.length).keys());
+      shuffle(orderRange);
+
+      blocks.forEach((block, index) => {
+        block.style.order = orderRange[index];
+        block.addEventListener('click', function() {
+          flipBlock(block);
+        });
+      });
+
+      function flipBlock(selectedBlock) {
+        selectedBlock.classList.add('is-flipped');
+        let allFlippedBlocks = blocks.filter(flippedBlock => flippedBlock.classList.contains('is-flipped'));
+        
+        if (allFlippedBlocks.length === 2) {
+          stopClicking();
+          checkMatchedBlocks(allFlippedBlocks[0], allFlippedBlocks[1]);
+        }
+      }
+
+      function stopClicking() {
+        blocksContainer.classList.add('no-clicking');
+        setTimeout(() => {
+          blocksContainer.classList.remove('no-clicking');
+        }, duration);
+      }
+
+      function checkMatchedBlocks(firstBlock, secondBlock) {
+        let triesElement = document.querySelector('.tries span');
+        
+        if (firstBlock.dataset.text === secondBlock.dataset.text) {
+          firstBlock.classList.remove('is-flipped');
+          secondBlock.classList.remove('is-flipped');
+          firstBlock.classList.add('has-match');
+          secondBlock.classList.add('has-match');
+          document.getElementById('success').play();
+        } else {
+          triesElement.textContent = parseInt(triesElement.textContent) + 1;
+          setTimeout(() => {
+            firstBlock.classList.remove('is-flipped');
+            secondBlock.classList.remove('is-flipped');
+          }, duration);
+          document.getElementById('fail').play();
+        }
+      }
+
+      function shuffle(array) {
+        let current = array.length, temp, random;
+        while (current > 0) {
+          random = Math.floor(Math.random() * current);
+          current--;
+          temp = array[current];
+          array[current] = array[random];
+          array[random] = temp;
+        }
+        return array;
+      }
+    </script>
+  </body>
+</html>
