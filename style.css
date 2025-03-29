@@ -202,5 +202,7 @@
     footer #endButton {
         position: relative;
         bottom: 5px;
+        width: fit-content;
+        margin-top: 5px;
   }
 }
