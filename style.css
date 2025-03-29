@@ -47,7 +47,6 @@
     color: #f0f0f0;
   }
   .info-container {
-    width: 1080px;
     margin: 20px auto 0;
     padding: 20px;
     font-size: 24px;
@@ -164,44 +163,39 @@
 
 @media screen and (max-width: 500px) {
   body {
-    border: 2px solid black;
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: center;
-    transform: scale(0.7);
+    width: 100%;
   }
   .info-container h1 {
-    font-size: 35px;
+    font-size: 33px;
     position: absolute;
   }
   .memory-game-blocks {
-    display: inline-flex;
-    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 335px;
+    margin: auto;
   }
   .memory-game-blocks .game-block {
-    height: 80px;
-    width: 80px;
-    flex: 5 0 50px;
-    margin: 10px;
-  }
-  .control-buttons {
-    position: absolute;
+    width: calc(25% - 10px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 5px;
   }
   .info-container .tries {
-    float: none;
-    text-align: center;
+    float: right;
+    text-align: right;
     font-size: 15px;
-    margin-top: 30px;
-  }
-  footer #endButton {
-    transform: scale(0.5);
-    left: 76%;
+    margin-top: 25px;
   }
   .memory-game-blocks .game-block .back p {
-    font-size: 15px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 3px;
     font-weight: bold;
   }
-
   footer .ediah p {
     font-size: 25px;
   }
