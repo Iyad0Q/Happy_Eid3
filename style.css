@@ -167,9 +167,11 @@
     border: 2px solid black;
     overflow: hidden;
     text-align: center;
+    transform: scale(0.7);
   }
   .info-container h1 {
-    font-size: 40px;
+    font-size: 35px;
+    position: absolute;
   }
   .memory-game-blocks {
     display: inline-flex;
@@ -181,9 +183,26 @@
     flex: 5 0 50px;
     margin: 10px;
   }
-
   .control-buttons {
-    display: flex;
-    flex-wrap: wrap;
+    position: absolute;
+  }
+  .info-container .tries {
+    float: none;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  footer #endButton {
+    transform: scale(0.5);
+    left: 76%;
+  }
+  .memory-game-blocks .game-block .back p {
+    font-size: 15px;
+    padding: 5px;
+    font-weight: bold;
+  }
+
+  footer .ediah p {
+    font-size: 25px;
   }
 }
