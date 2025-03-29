@@ -199,4 +199,8 @@
   footer .ediah p {
     font-size: 25px;
   }
+    footer #endButton {
+        position: relative;
+        bottom: 5px;
+  }
 }
